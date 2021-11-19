@@ -1,3 +1,20 @@
-// hello world
-console.log('hello clase 5');
-console.log('We are going to work with Git on this class!');
+const express = require('express');
+const app = express();
+app.use(express.static('public'));
+
+
+app.listen(3000, ()=>{
+    console.log('Servidor funcionando');
+});
+
+app.get('/', (req,res)=>{
+    res.sendFile(__dirname + '/views/home.html');
+});
+
+app.get('/login', (req,res)=>{
+    res.sendFile(__dirname + '/views/login.html');
+});
+
+app.get('/register', (req,res)=>{
+    res.sendFile(__dirname + '/views/register.html');
+});
